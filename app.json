@@ -16,6 +16,7 @@
       "supportsTablet": true
     },
     "android": {
+    "permissions": ["android.permission.READ_MEDIA_AUDIO"],
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
