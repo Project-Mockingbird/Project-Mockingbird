@@ -13,14 +13,18 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.emprevenge.musicplayer"
     },
     "android": {
-    "permissions": ["android.permission.READ_MEDIA_AUDIO"],
+      "permissions": [
+        "android.permission.READ_MEDIA_AUDIO"
+      ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.emprevenge.musicplayer"
     },
     "web": {
       "bundler": "metro",
