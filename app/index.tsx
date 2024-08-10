@@ -5,12 +5,11 @@ import { useEffect, useState } from "react";
 import { useMusicList } from "@/hooks/useMusicList";
 import { MusicFile } from "@/types/MusicList";
 import { PERMISSIONS, request } from "react-native-permissions";
-import { addTracks, setupPlayer } from "@/services/trackplayer";
-import TrackPlayer, { AddTrack } from "react-native-track-player";
+import { setupPlayer } from "@/services/trackplayer";
+import TrackPlayer from "react-native-track-player";
 
 export default function Index() {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
-  const [isPlayerReady, setIsPlayerReady] = useState(false);
   const [musicList, setMusicList] = useState<MusicFile[]>();
   const { getMusicList } = useMusicList();
 
@@ -20,19 +19,13 @@ export default function Index() {
       const response = await pickDirectory();
       if (!response) throw Error("Invalid directory");
       setMusicList(await getMusicList(response.uri));
-      let isSetup = await setupPlayer();
-
-      setIsPlayerReady(isSetup);
+      await setupPlayer();
       setIsLoaded(true);
     };
 
     loadPage();
   }, []);
 
-  const addSong = (song: MusicFile) => {
-    addTracks([{ url: song.uri }]);
-    return;
-  };
   return (
     <View style={styles.container}>
       <SectionList
@@ -40,9 +33,10 @@ export default function Index() {
         sections={[{ title: "Música", data: musicList ? musicList : [] }]}
         renderItem={({ item }) => (
           <Text
-            onPress={() => {
-              console.log(item);
-              addSong(item);
+            onPress={async () => {
+              await TrackPlayer.reset();
+              await TrackPlayer.add([{ url: item.uri }]);
+              await TrackPlayer.play();
             }}
             style={styles.musicTitle}
           >
