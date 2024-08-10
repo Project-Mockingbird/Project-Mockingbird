@@ -1,50 +1,50 @@
-# Welcome to your Expo app 👋
+<h1 align="center">
+  Project: Mockingbird
+</h1>
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Project: Mockingbird is a music player developed in react with the following goals:
 
-## Get started
+- Allow users as much control as possible over their music player - <span style="color:yellow; font-weight: bold;">In Progress</span>
+- Give users a free universal platform to play music, be it desktop or mobile - <span style="color:red; font-weight: bold;">Not Done</span>
+  - To that end, user created playlists can be saved and used between platforms in a variety of ways - <span style="color:red; font-weight: bold;">Not Done</span>
+- Connection with Rich Presence on other platforms, so you can show the world what you're listening to, without paying for it - <span style="color:red; font-weight: bold;">Not Done</span>
+- Edit the metadata of your songs, so you can have an organized library - <span style="color:red; font-weight: bold;">Not Done</span>
 
-1. Install dependencies
+## Features
 
-   ```bash
-   npm install
-   ```
+- Rich Presence support - <span style="color:red; font-weight: bold;">Not Done</span>
+- Desktop and Mobile support - <span style="color:red; font-weight: bold;">Not Done</span>
+- Playlists stored on the cloud - <span style="color:red; font-weight: bold;">Not Done</span>
+- Lyrics display on every platform - <span style="color:red; font-weight: bold;">Not Done</span>
+- Metadata information edit - <span style="color:red; font-weight: bold;">Not Done</span>
+- Custom theme support - <span style="color:red; font-weight: bold;">Not Done</span>
 
-2. Start the app
+## Build from source
 
-   ```bash
-    npx expo start
-   ```
+Setup the latest supported version of Node.js by following the intructions on their [website](https://nodejs.org/en).
 
-In the output, you'll find options to open the app in a
+This project uses yarn, so setup yarn [here](https://yarnpkg.com/getting-started).
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+For mobile, this project uses local app development, so you'll need to setup Android Studio. Follow the instructions laid out by Expo [here](https://docs.expo.dev/get-started/set-up-your-environment/?platform=android&device=physical&mode=development-build&buildEnv=local#set-up-an-android-device-with-a-development-build).
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+Clone this repository and install dependencies running this command:
 
 ```bash
-npm run reset-project
+yarn
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+To run the project on mobile, run the following command:
 
-## Learn more
+```bash
+yarn android #For android
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+## Project layout
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+    ├─ app/                      Router configuration using [Expo Router](https://docs.expo.dev/router/introduction/)
+    ├─ src/                      Application source code
+    │ ├─ components/             Components used throughout the whole project
+    │ ├─ hooks/                  Actions done on screens that must be used on multiple locations
+    │ ├─ screens/                Screen layout
+    │ └─ services/               API communication
+    └─ types/                    Types used throughout the whole project
