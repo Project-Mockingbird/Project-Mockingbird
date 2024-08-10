@@ -1,8 +1,6 @@
 import TrackPlayer, {
-  AddTrack,
   AppKilledPlaybackBehavior,
   Capability,
-  RepeatMode,
 } from "react-native-track-player";
 
 export async function setupPlayer() {
@@ -36,11 +34,4 @@ export async function setupPlayer() {
   } finally {
     return state.isSetup;
   }
-}
-
-export async function addTracks(tracks: AddTrack[]) {
-  await TrackPlayer.reset();
-  console.log(await TrackPlayer.add(tracks));
-  await TrackPlayer.play();
-  await TrackPlayer.setRepeatMode(RepeatMode.Queue);
 }
