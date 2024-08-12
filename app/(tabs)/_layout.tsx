@@ -2,7 +2,14 @@ import { Tabs } from "expo-router";
 
 export default function MainRouter() {
   return (
-    <Tabs>
+    <Tabs
+      screenOptions={{
+        headerTintColor: "#EEF4ED",
+        headerStyle: { backgroundColor: "#282828", borderBottomWidth: 0 },
+        tabBarStyle: { borderTopWidth: 0, backgroundColor: "#282828" },
+        tabBarActiveTintColor: "#EEF4ED",
+      }}
+    >
       <Tabs.Screen
         name="library"
         options={{
